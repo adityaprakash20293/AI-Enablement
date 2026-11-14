@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Enablement & Training | Portfolio Demo</title>
+<style>
+:root{--navy:#102B45;--teal:#168F91;--teal2:#087F82;--ink:#24384b;--muted:#5b6d7d;--bg:#f3f7f9;--line:#dfe8ed;--pale:#e8f4f3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:var(--ink);line-height:1.55}
+header{background:var(--navy);color:#fff;padding:28px max(22px,calc((100% - 980px)/2))}
+header .eyebrow{color:#9ed8d5;text-transform:uppercase;letter-spacing:1.5px;font-size:11px;font-weight:bold}
+header h1{font-size:27px;margin:8px 0}header p{margin:0;color:#d6e2eb;max-width:720px;font-size:14px}
+main{max-width:980px;margin:24px auto;padding:0 18px 42px}
+.notice{background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);padding:12px 15px;border-radius:7px;font-size:12px;color:var(--muted);margin-bottom:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.tab{border:1px solid var(--line);background:#fff;color:var(--navy);padding:10px 14px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:12px}
+.tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:9px;padding:22px;margin-bottom:16px}
+.panel h2{color:var(--navy);font-size:20px;margin:0 0 8px}.muted{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+.tile{border:1px solid var(--line);border-radius:7px;padding:15px;background:#fbfdfe}.tile strong{display:block;color:var(--navy);margin-bottom:5px;font-size:14px}.tile span{font-size:12px;color:var(--muted)}
+.callout{background:var(--pale);padding:14px;border-radius:7px;font-size:13px;margin:14px 0}
+button.action{background:var(--teal);border:0;border-radius:5px;padding:10px 15px;color:white;font-weight:bold;cursor:pointer;font-size:12px}
+button.action:hover{background:var(--teal2)}button.secondary{background:#edf2f5;color:var(--navy)}
+.question{padding:15px;border:1px solid var(--line);border-radius:7px;margin:12px 0}.question h3{font-size:14px;margin:0 0 10px;color:var(--navy)}
+.option{display:block;width:100%;text-align:left;padding:10px 12px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:5px;cursor:pointer;color:var(--ink);font-size:13px}
+.option:hover{border-color:var(--teal)}.option.selected{border-color:var(--teal);background:var(--pale)}
+.feedback{font-size:12px;margin-top:8px;color:var(--teal2);font-weight:bold;min-height:18px}
+.progress{height:7px;background:#e7eef2;border-radius:9px;overflow:hidden;margin:12px 0}.progress div{height:100%;width:0;background:var(--teal);transition:width .2s}
+footer{text-align:center;color:#788795;font-size:11px;padding:10px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}header h1{font-size:23px}.panel{padding:17px}}
+</style></head>
+<body>
+<header><div class="eyebrow">Independent portfolio demonstration</div><h1>AI Enablement & Training</h1><p>A short learning experience showing how employees can use generative AI thoughtfully in everyday knowledge and content tasks.</p></header>
+<main>
+<div class="notice"><strong>Demo context:</strong> This is a fictional learning module. It uses prepared examples and simulated feedback; it is not connected to a live AI system or an employer's internal tools.</div>
+<div class="tabs" role="tablist">
+<button class="tab active" data-tab="learn">1. Learn</button><button class="tab" data-tab="practice">2. Practice</button><button class="tab" data-tab="check">3. Knowledge Check</button>
+</div>
+<section class="panel view" id="learn">
+<h2>Using AI responsibly at work</h2><p class="muted">A practical starting point for using AI to support work while keeping human judgement and accountability in place.</p>
+<div class="grid">
+<div class="tile"><strong>Start with a clear task</strong><span>Describe the outcome you need, the audience, and the format. Break complex requests into smaller steps.</span></div>
+<div class="tile"><strong>Provide useful context</strong><span>Share approved, non-sensitive background information and explain relevant constraints.</span></div>
+<div class="tile"><strong>Review the output</strong><span>Check facts, calculations, tone, completeness, and alignment with current procedures.</span></div>
+<div class="tile"><strong>Protect information</strong><span>Follow organizational policies. Do not enter confidential, personal, or restricted information into unapproved tools.</span></div>
+</div>
+<div class="callout"><strong>Key principle:</strong> AI can help create a first draft or organize information. A knowledgeable person remains responsible for checking and approving the result.</div>
+<button class="action" onclick="switchTab('practice')">Continue to practice →</button>
+</section>
+<section class="panel view" id="practice" hidden>
+<h2>Practice: improve the request</h2><p class="muted">A colleague enters: “Write something about the new process.” Select the prompt that gives the AI the clearest direction.</p>
+<div class="question" id="practiceQ">
+<button class="option" data-correct="false">“Write something useful and make it sound professional.”</button>
+<button class="option" data-correct="true">“Create a 150-word quick-start guide for new service coordinators. Explain the three main steps using the process notes below. Use plain language and flag any missing information rather than guessing.”</button>
+<button class="option" data-correct="false">“You know our process. Write the guide without asking questions.”</button>
+<div class="feedback" id="practiceFeedback"></div></div>
+<div class="callout">Why it matters: a strong request defines the audience, deliverable, source material, tone, and what to do when information is missing.</div>
+<button class="action" onclick="switchTab('check')">Continue to knowledge check →</button>
+</section>
+<section class="panel view" id="check" hidden>
+<h2>Knowledge check</h2><p class="muted">Choose the best answer for each question.</p>
+<div class="progress"><div id="progressBar"></div></div>
+<div id="quiz"></div><div id="score" class="callout" hidden></div>
+<button class="action" id="submitQuiz">Check answers</button> <button class="action secondary" id="resetQuiz">Try again</button>
+</section>
+<footer>Fictional scenario • Prepared learning content • Human review required</footer>
+</main>
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+function switchTab(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!==id)}
+tabs.forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
+document.querySelectorAll('#practiceQ .option').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#practiceQ .option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.getElementById('practiceFeedback').textContent=b.dataset.correct==='true'?'Correct. The request defines the audience, format, source, and quality guardrail.':'Not quite. A useful prompt needs more context and clear expectations.'}));
+const qs=[
+{q:'Which information should you enter into an AI tool?',a:['Any information if the task is urgent','Only information permitted by organizational policy and the tool’s approval status','Customer records to improve the response'],c:1,e:'Use only information approved for that tool. Keep confidential and personal information protected.'},
+{q:'What should happen before an AI-generated procedure is shared?',a:['A subject-matter expert checks it against the approved process','Publish it immediately if it reads well','Assume the AI used the latest information'],c:0,e:'Human review is essential. AI output can be incomplete or inaccurate.'},
+{q:'What makes a prompt more useful?',a:['A vague request with no background','A clear task, audience, context, format, and constraints','As many unrelated tasks as possible in one request'],c:1,e:'Clear instructions and relevant context help produce a more useful first draft.'}
+];
+const quiz=document.getElementById('quiz');
+qs.forEach((q,i)=>{const d=document.createElement('div');d.className='question';d.innerHTML=`<h3>${i+1}. ${q.q}</h3>`+q.a.map((a,j)=>`<button class="option" data-q="${i}" data-a="${j}">${a}</button>`).join('')+`<div class="feedback" id="f${i}"></div>`;quiz.appendChild(d)});
+let answers={};
+quiz.addEventListener('click',e=>{const b=e.target.closest('button[data-q]');if(!b)return;const q=b.dataset.q;answers[q]=Number(b.dataset.a);quiz.querySelectorAll(`button[data-q="${q}"]`).forEach(x=>x.classList.toggle('selected',x===b));document.getElementById('progressBar').style.width=(Object.keys(answers).length/qs.length*100)+'%'});
+document.getElementById('submitQuiz').onclick=()=>{let score=0;qs.forEach((q,i)=>{const ok=answers[i]===q.c;if(ok)score++;document.getElementById('f'+i).textContent=(ok?'Correct. ':'Review: ')+q.e});const box=document.getElementById('score');box.hidden=false;box.textContent=`Your result: ${score} of ${qs.length} correct. ${score===qs.length?'Great work.':'Review the explanations and try again.'}`};
+document.getElementById('resetQuiz').onclick=()=>{answers={};document.querySelectorAll('#quiz .option').forEach(b=>b.classList.remove('selected'));document.querySelectorAll('.feedback').forEach(f=>f.textContent='');document.getElementById('score').hidden=true;document.getElementById('progressBar').style.width='0%'};
+</script></body></html>
